@@ -28,7 +28,7 @@ Software Requirements: Ubuntu 20.04 and ROS 1 (Noetic) previously installed.
      ii. Move ‘mae275drone’ Folder > PX4-Autopilot/Tools/sitl_gazebo/models  
     iii. Move ‘mae275drone.world’ > PX4-Autopilot/Tools/sitl_gazebo/worlds  
      iv. Move ‘2750_mae275drone’ file > PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes  
-      v. Type ‘MAE275Drone’ > PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake in the command set(models           …  *HINT*Line 144  
+      v. Type ‘mae275drone’ > PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake in the command set(models           …  *HINT*Line 144  
      vi. Move ‘mae275_posix_sitl.launch’ > PX4-Autopilot/launch  
   5. Test Run   
     a. New terminal -     cd PX4-Autopilot  
