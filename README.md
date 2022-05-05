@@ -12,18 +12,18 @@ Software Requirements: Ubuntu 20.04 and ROS 1 (Noetic) previously installed.
         https://linuxconfig.org/how-to-enable-disable-universe-multiverse-and-restricted-repository-on-ubuntu-20-04-lts-focal-fossa
     b. Install ROS
       http://wiki.ros.org/noetic/Installation/Ubuntu
-2. Install PX4 with MAVSDK
-    a. Install PX4 Environment
-      https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html
-    b. Install MAVSDK with QGroundControl
-      https://mavsdk.mavlink.io/main/en/cpp/quickstart.html
-3. Install Kinect Model Files > ~/.gazebo/models
-    https://github.com/osrf/gazebo_tutorials/tree/master/ros_depth_camera/files
-4. Download MAE 275 Package
-    a. Download Package Files (this Github)
-    b. Setup World
-      i. Move Orchard.world File > PX4-Autopilot/Tools/sitl_gazebo/worlds/
-    c. Setup Drone Environment
+2. Install PX4 with MAVSDK  
+    a. Install PX4 Environment  
+      https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html  
+    b. Install MAVSDK with QGroundControl  
+      https://mavsdk.mavlink.io/main/en/cpp/quickstart.html  
+3. Install Kinect Model Files > ~/.gazebo/models  
+    https://github.com/osrf/gazebo_tutorials/tree/master/ros_depth_camera/files  
+4. Download MAE 275 Package  
+    a. Download Package Files (this Github)  
+    b. Setup World  
+      i. Move Orchard.world File > PX4-Autopilot/Tools/sitl_gazebo/worlds/  
+    c. Setup Drone Environment  
       i. Follow Gazebo World Setup Instructions from Andrew
      ii. Move ‘mae275drone’ Folder > PX4-Autopilot/Tools/sitl_gazebo/models
     iii. Move ‘mae275drone.world’ > PX4-Autopilot/Tools/sitl_gazebo/worlds
