@@ -24,18 +24,18 @@ Software Requirements: Ubuntu 20.04 and ROS 1 (Noetic) previously installed.
     b. Setup World  
       i. Move Orchard.world File > PX4-Autopilot/Tools/sitl_gazebo/worlds/  
     c. Setup Drone Environment  
-      i. Follow Gazebo World Setup Instructions from Andrew
-     ii. Move ‘mae275drone’ Folder > PX4-Autopilot/Tools/sitl_gazebo/models
-    iii. Move ‘mae275drone.world’ > PX4-Autopilot/Tools/sitl_gazebo/worlds
-     iv. Move ‘2750_mae275drone’ file > PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes
-      v. Type ‘MAE275Drone’ > PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake in the command set(models           …  *HINT*Line 144
-     vi. Move ‘mae275_posix_sitl.launch’ > PX4-Autopilot/launch
-  5. Test Run 
-    a. New terminal -     cd PX4-Autopilot
-    b. ‘make px4_sitl gazebo_MAE275Drone__Orchard’
-      i. If it does not launch, may have to copy step iv. Into tmp folder, follow error path
-  6. Copy mae275drone_sim.sh to home
-    a. ‘bash mae275drone_sim.sh’ to run automated roslaunch with PX4
+      i. Follow Gazebo World Setup Instructions from Andrew  
+     ii. Move ‘mae275drone’ Folder > PX4-Autopilot/Tools/sitl_gazebo/models  
+    iii. Move ‘mae275drone.world’ > PX4-Autopilot/Tools/sitl_gazebo/worlds  
+     iv. Move ‘2750_mae275drone’ file > PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes  
+      v. Type ‘MAE275Drone’ > PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake in the command set(models           …  *HINT*Line 144  
+     vi. Move ‘mae275_posix_sitl.launch’ > PX4-Autopilot/launch  
+  5. Test Run   
+    a. New terminal -     cd PX4-Autopilot  
+    b. ‘make px4_sitl gazebo_MAE275Drone__Orchard’  
+      i. If it does not launch, may have to copy step iv. Into tmp folder, follow error path  
+  6. Copy mae275drone_sim.sh to home  
+    a. ‘bash mae275drone_sim.sh’ to run automated roslaunch with PX4  
 
 
 
