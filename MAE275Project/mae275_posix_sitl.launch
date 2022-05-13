@@ -42,4 +42,64 @@
     </include>
     <!-- gazebo model -->
     <node name="$(anon vehicle_spawn)" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -file $(arg sdf) -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/>
+    
+    
+    <?ignore
+       <!-- MAVROS configs -->
+    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
+    <arg name="respawn_mavros" default="false"/>
+        <!-- MAVROS -->
+    <include file="$(find mavros)/launch/px4.launch">
+        <!-- GCS link is provided by SITL -->
+        <arg name="gcs_url" value=""/>
+        <arg name="fcu_url" value="$(arg fcu_url)"/>
+        <arg name="respawn_mavros" value="$(arg respawn_mavros)"/>
+    </include>
+
+    ?>
+
+     <group ns="rtabmap">
+
+    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_ros/rgbd_sync" output="screen">
+      <remap from="rgb/image_raw"       to="/camera/rgb/image_rect_color"/>
+      <remap from="depth/image_raw"     to="/camera/depth_registered/image_raw"/>
+      <remap from="camera/rgb/camera_info" to="/camera/rgb/camera_info"/>
+      <remap from="rgbd_image"      to="rgbd_image"/> <!-- output -->
+      
+      <!-- Should be true for not synchronized camera topics 
+           (e.g., false for kinectv2, zed, realsense, true for xtion, kinect360)-->
+      <param name="approx_sync"       value="true"/> 
+    </node>
+
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+          <param name="frame_id" type="string" value="base_link"/>
+
+          <param name="subscribe_depth" type="bool" value="false"/>
+          <param name="subscribe_rgbd" type="bool" value="true"/>
+
+          <remap from="/gazebo/model_states" to="/base_controller/odom"/>
+
+          <remap from="rgbd_image" to="rgbd_image"/>
+
+          <param name="queue_size" type="int" value="100"/>
+
+          <!-- RTAB-Map's parameters -->
+          <param name="RGBD/AngularUpdate"        type="string" value="0.01"/>
+          <param name="RGBD/LinearUpdate"         type="string" value="0.01"/>
+          <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+    </node>
+  </group>
+
+ 
+   <node pkg="rviz" type="rviz" name="rviz"/>
+  <!-- Construct and voxelize the point cloud (for fast visualization in rviz) -->
+  <node pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_ros/point_cloud_xyzrgb">
+    <remap from="rgbd_image"      to="/rtabmap/rgbd_image/compressed"/>
+    <remap from="cloud"           to="voxel_cloud" />
+
+    <param name="queue_size" type="int" value="10"/>
+    <param name="voxel_size" type="double" value="0.01"/>
+  </node>
+ 
+ 
 </launch>
