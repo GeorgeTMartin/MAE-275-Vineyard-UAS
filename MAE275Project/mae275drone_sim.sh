@@ -1,3 +1,5 @@
+chmod +x /QGroundControl.AppImage
+./QGroundControl.AppImage &
 cd PX4-Autopilot
 DONT_RUN=1 make px4_sitl_default gazebo
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
