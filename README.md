@@ -42,7 +42,7 @@ NOTE: setup.bashrc should have the following lines appended:
 source /opt/ros/noetic/setup.bash  
 source \~/catkin_ws/devel/setup.bash  
 source \~/PX4-Autopilot/Tools/setup_gazebo.bash \~/PX4-Autopilot \~/PX4-Autopilot/build/px4_sitl_default  
-export ROS_PACKAGE_PATH=/home/george/catkin_ws/src:/opt/ros/noetic/share:~/PX4-Autopilot:~/PX4-Autopilot/Tools/sitl_gazebo
+export ROS_PACKAGE_PATH=/home/george/catkin_ws/src:/opt/ros/noetic/share:\~/PX4-Autopilot:\~/PX4-Autopilot/Tools/sitl_gazebo
 
 
 
