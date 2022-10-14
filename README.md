@@ -38,7 +38,7 @@ Software Requirements: Ubuntu 20.04 and ROS 1 (Noetic) previously installed.
     a. ‘bash mae275drone_sim.sh’ to run automated roslaunch with PX4
 
 
-NOTE: setup.bashrc should have the following lines appended:
+NOTE: setup.bashrc should have the following lines appended:  
 source /opt/ros/noetic/setup.bash  
 source ~/catkin_ws/devel/setup.bash 
 source ~/PX4-Autopilot/Tools/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default  
